@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Dec 20 12:42:48 2021
+
+@author: CS_Knit_tinK_SC
+"""
+
+# LSTM Stock Predictor Using Closing Prices
+
+#%%
+#%%
+
+# In this notebook, you will build and train a custom LSTM RNN that uses a 10 day window of Bitcoin closing prices to predict the 11th day closing price.
+
+# You will need to:
+
+#    Prepare the data for training and testing
+#    Build and train a custom LSTM RNN
+#    Evaluate the performance of the model
+
+# Data Preparation
+
+# In this section, you will need to prepare the training and testing data for the model. The model will use a rolling 10 day window to predict the 11th day closing price.
+
+# You will need to:
+
+#    Use the window_data function to generate the X and y values for the model.
+#    Split the data into 70% training and 30% testing
+#    Apply the MinMaxScaler to the X and y values
+#    Reshape the X_train and X_test data for the model. Note: The required input format for the LSTM is:
+
+# reshape((X_train.shape[0], X_train.shape[1], 1))
+
+
+#%%
+
+import numpy as np
+import pandas as pd
+import hvplot.pandas
+
+#%%
