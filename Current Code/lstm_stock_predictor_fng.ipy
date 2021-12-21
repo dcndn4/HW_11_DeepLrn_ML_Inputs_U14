@@ -102,4 +102,50 @@ feature_column = 1
 target_column = 1
 X, y = window_data(df, window_size, feature_column, target_column)
 
+
+#%%
+
+# Use 70% of the data for training and the remaineder for testing
+split = int(0.7 * len(X))
+
+X_train = X[: split]
+X_test = X[split:]
+
+y_train = y[: split]
+y_test = y[split:]
+print(split)
+
+#%%
+
+from sklearn.preprocessing import MinMaxScaler
+# Use the MinMaxScaler to scale data between 0 and 1.
+
+
+# Create a MinMaxScaler object
+scaler = MinMaxScaler()
+
+# Fit the MinMaxScaler object with the features data X
+scaler.fit(X_train)
+
+# Scale the features training and testing sets
+X_train = scaler.transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Fit the MinMaxScaler object with the target data Y
+scaler.fit(y_train)
+
+# Scale the target training and testing sets
+y_train = scaler.transform(y_train)
+y_test = scaler.transform(y_test)
+
+#%%
+
+# Reshape the features for the model
+X_train = X_train.reshape((X_train.shape[0], X_train.shape[1], 1))
+X_test = X_test.reshape((X_test.shape[0], X_test.shape[1], 1))
+
+# Print some sample data after reshaping the datasets
+print (f"X_train sample values:\n{X_train[:3]} \n")
+print (f"X_test sample values:\n{X_test[:3]}")
+
 #%%
